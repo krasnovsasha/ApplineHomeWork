@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Box implements Gift {
 	private List<Candies> candies;
-	ArrayList<Double> list;
+	private ArrayList<Double> list;
 
 	public Box() {
 		candies = new ArrayList<>();
@@ -91,7 +91,7 @@ public class Box implements Gift {
 
 	private void removeMinWeightItem() {
 		list = new ArrayList<>();
-		double minWeightItem = 0;
+		double minWeightItem;
 		for (Candies c : candies) {
 			list.add(c.weight);
 		}
@@ -108,7 +108,7 @@ public class Box implements Gift {
 
 	private void removeMinCostItem() {
 		list = new ArrayList<>();
-		double minCostItem = 0;
+		double minCostItem;
 		for (Candies c : candies) {
 			list.add(c.cost);
 		}

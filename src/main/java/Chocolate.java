@@ -1,9 +1,22 @@
 public class Chocolate extends Candies {
-	private String chocolateType;
+	private Type chocolateType;
 
-	public Chocolate(String name, int weight, double cost, String chocolateType) {
+	public Chocolate(String name, int weight, double cost,Type type) {
 		super(name, weight, cost);
-		this.chocolateType = chocolateType;
+		this.chocolateType = type;
+	}
+	public enum Type {
+		MILK("milk"),DARK("dark"),WHITE("white");
+		private String name;
+
+		Type(String name) {
+			this.name = name;
+		}
+
+		@Override
+		public String toString() {
+			return name;
+		}
 	}
 
 	@Override
