@@ -1,3 +1,5 @@
+package homework1;
+
 public class Chocolate extends Candies {
 	private Type chocolateType;
 

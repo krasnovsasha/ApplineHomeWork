@@ -1,3 +1,5 @@
+package homework1;
+
 public abstract class Candies {
 	protected String name;
 	protected double weight;

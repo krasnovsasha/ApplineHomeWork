@@ -1,3 +1,5 @@
+package homework1;
+
 public class Cake extends Candies {
 	private int calories;
 

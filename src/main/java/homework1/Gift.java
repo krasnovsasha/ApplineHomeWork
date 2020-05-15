@@ -1,4 +1,4 @@
-import java.util.List;
+package homework1;
 
 public interface Gift {
 	void addCandy(Candies candy);

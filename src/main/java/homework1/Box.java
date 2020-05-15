@@ -1,3 +1,5 @@
+package homework1;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Iterator;
@@ -53,7 +55,7 @@ public class Box implements Gift {
 	@Override
 	public void printAllCandies() {
 		if (candies.size() == 0) {
-			System.out.println("Gift box is empty");
+			System.out.println("homework1.Gift box is empty");
 		} else {
 			System.out.println("******************\n" + "Here are all candies in gift box:");
 			for (Candies c : candies) {
