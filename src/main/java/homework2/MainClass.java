@@ -51,6 +51,8 @@ public class MainClass {
 		TreeMap<String, Integer> tm = new TreeMap<>();
 		for (String s : arrList) {
 			tm.put(s, tm.getOrDefault(s, 0) + 1);
+			// if need to count words IgnoreCase
+//			tm.put(s.toLowerCase(), tm.getOrDefault(s.toLowerCase(), 0) + 1);
 		}
 		int count = 0;
 		for (Map.Entry<String, Integer> pair : tm.entrySet()) {
