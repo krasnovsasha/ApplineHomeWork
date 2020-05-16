@@ -31,7 +31,7 @@ public class MainClass {
 			File inFile = new File(str[str.length - 1]);
 			br2 = new BufferedReader(new FileReader(inFile));
 			while (br2.ready()) {
-				sb.append(br2.readLine());
+				sb.append(br2.readLine()).append(" ");
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
@@ -44,13 +44,9 @@ public class MainClass {
 				e.printStackTrace();
 			}
 		}
-		String[] words = sb.toString().split("[^a-zA-Zа-яА-Я0-9]");
-		ArrayList<String> arrList = new ArrayList<>();
-		for (String word : words) {
-			if (!word.equals("")) {
-				arrList.add(word);
-			}
-		}
+		System.out.println(sb);
+		String[] words = sb.toString().replaceAll("\\p{Punct}", " ").split("\\s+");
+		ArrayList<String> arrList = new ArrayList<>(Arrays.asList(words));
 		Collections.sort(arrList);
 		arrList.forEach(System.out::println);
 		TreeMap<String, Integer> tm = new TreeMap<>();
