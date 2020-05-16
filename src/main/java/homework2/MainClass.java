@@ -44,7 +44,6 @@ public class MainClass {
 				e.printStackTrace();
 			}
 		}
-		System.out.println(sb);
 		String[] words = sb.toString().replaceAll("\\p{Punct}", " ").split("\\s+");
 		ArrayList<String> arrList = new ArrayList<>(Arrays.asList(words));
 		Collections.sort(arrList);
