@@ -40,21 +40,22 @@ public class MainClass {
 		}
 		System.out.println("Количество аннулированных ценных бумаг : " + count);
 		System.out.println();
-		System.err.println("Названия и даты создания всех организаций, основанных после введенной даты :\n");
+		String userDate = "05.05.2002";
+		System.err.println("Названия и даты создания всех организаций, основанных после " + userDate + "\n");
 		try {
 			Thread.sleep(100);
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 		companies.stream().filter((c) -> c.getEgrul_date()
-						.isAfter(LocalDateDeserializer.parseStringToDate("05.05.2005")))
+						.isAfter(LocalDateDeserializer.parseStringToDate(userDate)))
 						.forEach(System.out::println);
 		System.out.println();
-		String userInput = "USD";
-		System.err.println("ID и коды ценных бумаг, использующих заданную валюту " + userInput);
+		String userUSD = "USD";
+		System.err.println("ID и коды ценных бумаг, использующих заданную валюту " + userUSD);
 		System.out.println();
 		companies.forEach((c)->c.getSecurities()
-				.stream().filter((security)->security.getCurrency().getCode().equals(userInput))
+				.stream().filter((security)->security.getCurrency().getCode().equals(userUSD))
 				.forEach((secur)->System.out.println(secur.getId() + " " + secur.getCode())));
 	}
 }
