@@ -66,6 +66,18 @@ class Company {
 			return date_to;
 		}
 
+		public Currency getCurrency() {
+			return currency;
+		}
+
+		public int getId() {
+			return id;
+		}
+
+		public String getCode() {
+			return code;
+		}
+
 		@Override
 		public String toString() {
 			return code + " " + date_to + " " + name_full;
@@ -82,5 +94,18 @@ class Company {
 		private String code;
 		private String nameShort;
 		private String nameFull;
+
+		public int getId() {
+			return id;
+		}
+
+		public String getCode() {
+			return code;
+		}
+
+		@Override
+		public String toString() {
+			return id + " " + code;
+		}
 	}
 }
