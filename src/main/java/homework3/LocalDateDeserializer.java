@@ -8,6 +8,7 @@ import java.lang.reflect.Type;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
+import java.util.Scanner;
 
 class LocalDateDeserializer implements JsonDeserializer<LocalDate> {
 	@Override
@@ -31,11 +32,11 @@ class LocalDateDeserializer implements JsonDeserializer<LocalDate> {
 					try {
 						return LocalDate.parse(text, formatter4);
 					} catch (DateTimeParseException e4) {
-						e4.printStackTrace();
+						System.err.println("Can't recognize your data " + text + "\n");
 					}
 				}
 			}
 		}
-		return null;
+		return LocalDate.now();
 	}
 }

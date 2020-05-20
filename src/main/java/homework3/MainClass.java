@@ -1,11 +1,14 @@
 package homework3;
 
-import com.google.gson.*;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
+
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.time.LocalDate;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class MainClass {
 	public static void main(String[] args) throws FileNotFoundException {
@@ -22,7 +25,7 @@ public class MainClass {
 		System.err.println("Вывести все ценные бумаги " +
 				"(их код, дату истечения и полное название организации-владельца),\n"
 				+ "которые просрочены на текущий день, " +
-				"а также посчитать суммарное число всех таких бумаг :\n");
+				"а также посчитать суммарное число всех таких бумаг \n");
 		companies.forEach((s) -> s.getSecurities().stream()
 				.filter((d) -> d.getDate_to().isBefore(LocalDate.now()))
 				.forEach(System.out::println));
