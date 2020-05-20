@@ -20,20 +20,16 @@ class LocalDateDeserializer implements JsonDeserializer<LocalDate> {
 		DateTimeFormatter formatter3 = DateTimeFormatter.ofPattern("dd/MM/yy");
 		DateTimeFormatter formatter4 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
 		try {
-			LocalDate localDate = LocalDate.parse(text, formatter1);
-			return localDate;
+			return LocalDate.parse(text, formatter1);
 		} catch (DateTimeParseException e1) {
 			try {
-				LocalDate localDate = LocalDate.parse(text, formatter2);
-				return localDate;
+				return LocalDate.parse(text, formatter2);
 			} catch (DateTimeParseException e2) {
 				try {
-					LocalDate localDate = LocalDate.parse(text, formatter3);
-					return localDate;
+					return LocalDate.parse(text, formatter3);
 				} catch (DateTimeParseException e3) {
 					try {
-						LocalDate localDate = LocalDate.parse(text, formatter4);
-						return localDate;
+						return LocalDate.parse(text, formatter4);
 					} catch (DateTimeParseException e4) {
 						e4.printStackTrace();
 					}
