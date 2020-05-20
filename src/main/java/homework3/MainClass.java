@@ -2,7 +2,6 @@ package homework3;
 
 import com.google.gson.*;
 import com.google.gson.reflect.TypeToken;
-
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.time.LocalDate;
@@ -16,14 +15,17 @@ public class MainClass {
 		ArrayList<Company> companies;
 		companies = gson.fromJson(new FileReader("test.json"), new TypeToken<List<Company>>() {
 		}.getType());
-		System.out.println("Вывести все имеющиеся компании в формате «Краткое название» – «Дата основания 17/01/98»\n");
+		System.err.println("Вывести все имеющиеся компании в формате" +
+				" «Краткое название» – «Дата основания 17/01/98»\n");
 		companies.forEach(System.out::println);
 		System.out.println();
-		System.out.println("Вывести все ценные бумаги (их код, дату истечения и полное название организации-владельца),\n"
-						+ "которые просрочены на текущий день, а также посчитать суммарное число всех таких бумаг;\n");
+		System.err.println("Вывести все ценные бумаги " +
+				"(их код, дату истечения и полное название организации-владельца),\n"
+				+ "которые просрочены на текущий день, " +
+				"а также посчитать суммарное число всех таких бумаг :\n");
 		companies.forEach((s) -> s.getSecurities().stream()
-								.filter((d) -> d.getDate_to().isBefore(LocalDate.now()))
-								.forEach(System.out::println));
+				.filter((d) -> d.getDate_to().isBefore(LocalDate.now()))
+				.forEach(System.out::println));
 		ArrayList<ArrayList<Company.Security>> sec = new ArrayList<>();
 		for (Company c : companies) {
 			sec.add(c.getSecurities());
@@ -37,6 +39,10 @@ public class MainClass {
 			}
 		}
 		System.out.println("Количество аннулированных ценных бумаг : " + count);
+		System.out.println();
+		System.err.println("Названия и даты создания всех организаций, основанных после введенной даты :\n");
+		companies.stream().filter((c) -> c.getEgrul_date()
+						.isAfter(LocalDateDeserializer.parseStringToDate("05.05.2005")))
+						.forEach(System.out::println);
 	}
 }
-

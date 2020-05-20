@@ -1,6 +1,7 @@
 package homework3;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 
 class Company {
@@ -25,9 +26,13 @@ class Company {
 		return securities;
 	}
 
+	public LocalDate getEgrul_date() {
+		return egrul_date;
+	}
+
 	@Override
 	public String toString() {
-		return name_short + " - " + egrul_date;
+		return name_short + " - " + egrul_date.format(DateTimeFormatter.ofPattern("yyyy/MM/dd"));
 	}
 
 	class Company_type {
