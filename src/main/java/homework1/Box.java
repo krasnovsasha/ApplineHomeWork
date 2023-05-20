@@ -124,4 +124,6 @@ public class Box implements Gift {
 			}
 		}
 	}
+
+	public void t(){}
 }
